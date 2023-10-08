@@ -9,11 +9,8 @@ public class DropPlatform : MonoBehaviour
     private Coroutine fall;
     private Rigidbody rb;
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-        rb.useGravity = false;
-    }
+    [SerializeField]
+    private Color activateColor, fallColor;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -23,8 +20,15 @@ public class DropPlatform : MonoBehaviour
 
     private IEnumerator WaitAndFall()
     {
+        MeshRenderer myMesh = GetComponent<MeshRenderer>();
+        Material activate = new Material(myMesh.material);
+        Material fall = new Material(myMesh.material);
+        activate.color = activateColor;
+        fall.color = fallColor;
+
+        myMesh.material = activate;
         yield return new WaitForSeconds(waitTime);
-        rb.useGravity = true;
-        rb.constraints = RigidbodyConstraints.None;
+        myMesh.material = fall;
+        gameObject.AddComponent<Rigidbody>();
     }
 }

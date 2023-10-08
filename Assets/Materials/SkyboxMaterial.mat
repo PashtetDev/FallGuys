@@ -73,7 +73,7 @@ Material:
     - _Height: 1.02
     - _Metallic: 0
     - _Mode: 0
-    - _MyTime: 17.8
+    - _MyTime: 34.24
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -85,7 +85,7 @@ Material:
     - _BottomColor: {r: 0.09071115, g: 0, b: 0.09433961, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Tilling: {r: 30.41, g: -22.33, b: 0, a: 0}
+    - _Tilling: {r: 10, g: 10, b: 0, a: 0}
     - _UpColor: {r: 0, g: 0.01691605, b: 0.24528301, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5615433472051985057
