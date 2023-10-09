@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12831807, g: 0.10669183, b: 0.20259222, a: 1}
+  m_IndirectSpecularColor: {r: 0.07018513, g: 0.02760091, b: 0.16994798, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239415c7b875f204a81678de466f5496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  control: {fileID: 0}
 --- !u!1 &154281208
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,8 +461,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 2
-  activateColor: {r: 1, g: 0.7019608, b: 0.42745098, a: 0}
-  fallColor: {r: 1, g: 0.29803923, b: 0.3137255, a: 0}
+  activateColor: {r: 0.6063479, g: 0.33935562, b: 0.7735849, a: 0}
+  fallColor: {r: 0.04601932, g: 0, b: 0.0754717, a: 0}
 --- !u!1 &479204279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,6 +1210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1435671800}
   - component: {fileID: 1435671801}
+  - component: {fileID: 1435671802}
   m_Layer: 0
   m_Name: CameraHolder
   m_TagString: Untagged
@@ -1248,6 +1250,27 @@ MonoBehaviour:
   sensitivity: 1
   speed: 10
   target: {fileID: 1694033670}
+--- !u!95 &1435671802
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435671799}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 749ed03ddd1264f49a0a80c7622f6672, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1510914589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,7 +1661,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1850,7 +1873,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59d1a931863fb624fb1d4ed31ca493ae, type: 2}
+  - {fileID: 2100000, guid: d812543c6710fbe45b0ea155ef05608c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1972,7 +1995,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 59d1a931863fb624fb1d4ed31ca493ae, type: 2}
+  - {fileID: 2100000, guid: d812543c6710fbe45b0ea155ef05608c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2169,7 +2192,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee86a465cc6a81f4db0cc29e8d311699, type: 2}
+  - {fileID: 2100000, guid: d812543c6710fbe45b0ea155ef05608c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2774,7 +2797,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee86a465cc6a81f4db0cc29e8d311699, type: 2}
+  - {fileID: 2100000, guid: d812543c6710fbe45b0ea155ef05608c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
