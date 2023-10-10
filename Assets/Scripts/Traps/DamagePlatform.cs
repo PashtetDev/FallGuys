@@ -40,10 +40,10 @@ public class DamagePlatform : MonoBehaviour
             animator.SetBool("Activate", true);
             for (int i = 0; i < players.Count; i++)
             {
-                players[i].GetDamage(1);
+                players[i].GetDamage(5);
             }
             yield return new WaitForSeconds(1);
-            cube.material = orange;
+            cube.material = startMaterial;
             yield return new WaitForSeconds(4);
         }
     }

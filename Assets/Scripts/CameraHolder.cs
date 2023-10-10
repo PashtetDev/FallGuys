@@ -20,8 +20,11 @@ public class CameraHolder : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Rotation();
-        Movement();
+        if (!PlayerController.instance.isLose)
+        {
+            Rotation();
+            Movement();
+        }
     }
 
     private void Rotation()
@@ -34,6 +37,11 @@ public class CameraHolder : MonoBehaviour
 
     private void Movement()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Boost() * speed * Time.deltaTime);
+    }
+
+    private float Boost()
+    {
+        return Mathf.Pow(Mathf.Clamp(Vector3.Distance(transform.position, target.transform.position), 0.5f, 5f), 2);
     }
 }

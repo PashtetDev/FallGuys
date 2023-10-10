@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     public float speed;
     [SerializeField]
+    private int maxHealth;
+    [SerializeField]
     private float jumpForce, rotationSpeed;
     [SerializeField]
     private GameObject mesh;
@@ -13,14 +15,22 @@ public class PlayerController : MonoBehaviour
     private GroundChecker groundChecker;
     [SerializeField, Space]
     private CameraHolder cameraHolder;
-    [SerializeField]
-    private int maxHealth;
     private int health;
     private Vector3 movementDirection;
+    [HideInInspector]
     public Vector3 windDirection;
+    [SerializeField]
+    private UIDrawer uiDrawer;
+    public static PlayerController instance;
+    [HideInInspector]
+    public bool isLose;
+    [SerializeField]
+    private GameObject damageParticle;
 
     private void Awake()
     {
+        isLose = false;
+        instance = this;
         animator = mesh.GetComponent<Animator>();
         health = maxHealth;
         rb = GetComponent<Rigidbody>();
@@ -28,7 +38,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (groundChecker.onGround)
+        if (rb.velocity.y < -jumpForce * 1.5f)
+            animator.SetBool("Fall", true);
+        else
+            animator.SetBool("Fall", false);
+        if (groundChecker.onGround && !isLose)
         {
             Movement();
             if (Input.GetKey(KeyCode.Space))
@@ -87,8 +101,12 @@ public class PlayerController : MonoBehaviour
 
     private void Death()
     {
+        isLose = true;
         health = 0;
-        Debug.Log("Death");
+        animator.SetBool("Death", true);
+        uiDrawer.UpdateHealth(0);
+        uiDrawer.LoseRender();
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void GetDamage(int damage)
@@ -99,6 +117,8 @@ public class PlayerController : MonoBehaviour
                 Death();
             else
                 health -= damage;
+            uiDrawer.UpdateHealth((float)health/maxHealth);
+            Instantiate(damageParticle, transform.position + Vector3.up * 0.5f, Quaternion.identity).GetComponent<PSController>().Initialization();
         }
     }
 

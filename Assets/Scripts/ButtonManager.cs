@@ -8,16 +8,26 @@ public class ButtonManager : MonoBehaviour
     [SerializeField]
     private PAMControl control;
 
-    public void Play()
+    public void StartGame()
     {
-        StartCoroutine(WaitLoadGame());
+        StartCoroutine(WaitLoadScene(1.5f, "Game"));
+    }
+    public void RestartGame()
+    {
+        StartCoroutine(WaitLoadScene(0.5f, "Game"));
     }
 
-    private IEnumerator WaitLoadGame()
+    private IEnumerator WaitLoadScene(float loadTime, string scene)
     {
-        control.Play();
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("Game");
+        if (control != null)
+            control.Play();
+        yield return new WaitForSeconds(loadTime);
+        SceneManager.LoadScene(scene);
+    }
+
+    public void OpenMenu()
+    {
+        StartCoroutine(WaitLoadScene(0.5f, "Menu"));
     }
 
 }
