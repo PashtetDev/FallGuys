@@ -71,9 +71,10 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Height: 1.02
+    - _Intensity: 23.8
     - _Metallic: 0
     - _Mode: 0
-    - _MyTime: 34.24
+    - _MyTime: 30.62
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0

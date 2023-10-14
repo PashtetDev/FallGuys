@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraHolder : MonoBehaviour
@@ -8,22 +6,15 @@ public class CameraHolder : MonoBehaviour
     private Vector2 rotationRange;
     [SerializeField]
     private float sensitivity, speed;
+
     private Vector3 rotation;
 
-    [SerializeField]
-    private GameObject target;
-
-    private void Awake()
+    public void CameraMove(Vector3 target)
     {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    private void FixedUpdate()
-    {
-        if (!PlayerController.instance.isLose)
+        if (Cursor.lockState == CursorLockMode.Locked)
         {
             Rotation();
-            Movement();
+            Movement(target);
         }
     }
 
@@ -35,13 +26,13 @@ public class CameraHolder : MonoBehaviour
         transform.localEulerAngles = rotation;
     }
 
-    private void Movement()
+    private void Movement(Vector3 target)
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Boost() * speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target, Boost(target) * speed * Time.deltaTime);
     }
 
-    private float Boost()
+    private float Boost(Vector3 target)
     {
-        return Mathf.Pow(Mathf.Clamp(Vector3.Distance(transform.position, target.transform.position), 0.5f, 5f), 2);
+        return Mathf.Pow(Mathf.Clamp(Vector3.Distance(transform.position, target), 0.5f, 5f), 2);
     }
 }
