@@ -49,9 +49,9 @@ public class ButtonManager : MonoBehaviour
                 case "Menu":
                     Exit();
                     break;
-                case "Game":
-                    StartCoroutine(WaitLoadScene(0.5f, "Menu"));
-                    break;
+                //case "Game":
+                //    StartCoroutine(WaitLoadScene(0.5f, "Menu"));
+                //    break;
                 default:
                     break;
             }
