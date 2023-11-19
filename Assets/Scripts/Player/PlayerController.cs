@@ -98,11 +98,11 @@ public class PlayerController : MonoBehaviour
 
     public void MeshRotate(Vector3 targetVector)
     {
-        if (targetVector.z != 0)
+        if (targetVector.z != 0 || targetVector.x != 0)
         {
             float angle = Mathf.Atan(targetVector.x / targetVector.z) * Mathf.Rad2Deg;
 
-            if (targetVector.z <= 0)
+            if (targetVector.z < 0)
                 angle += 180;
 
             mesh.transform.eulerAngles = new Vector3(0, Mathf.LerpAngle((mesh.transform.eulerAngles.y + 360) % 360, (angle + 360) % 360, rotationSpeed * Time.deltaTime), 0);

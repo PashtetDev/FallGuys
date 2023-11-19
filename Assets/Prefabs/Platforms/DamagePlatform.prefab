@@ -355,6 +355,7 @@ MonoBehaviour:
   activateColor: {r: 1, g: 0.85510135, b: 0.45882356, a: 0}
   newColor: {r: 1, g: 0.3443396, b: 0.3443396, a: 0}
   cube: {fileID: 4329591545207145557}
+  damage: 1
 --- !u!95 &4798197702781250529
 Animator:
   serializedVersion: 5

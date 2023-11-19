@@ -9,6 +9,8 @@ public class DamagePlatform : ActivePlatform
     private List<PlayerController> players;
     private Animator animator;
 
+    [SerializeField]
+    private int damage;
     private Material startMaterial;
     private Material orange;
     private Material red;
@@ -36,7 +38,7 @@ public class DamagePlatform : ActivePlatform
             animator.SetBool("Activate", true);
             for (int i = 0; i < players.Count; i++)
             {
-                players[i].GetDamage(5);
+                players[i].GetDamage(damage);
             }
             yield return new WaitForSeconds(waitTime - 4);
             cube.material = startMaterial;
