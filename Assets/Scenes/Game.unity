@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05892683, g: 0.011560669, b: 0.16472387, a: 1}
+  m_IndirectSpecularColor: {r: 0.079570614, g: 0.032850012, b: 0.16749534, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7479,6 +7479,7 @@ GameObject:
   - component: {fileID: 1843326475}
   - component: {fileID: 1843326477}
   - component: {fileID: 1843326476}
+  - component: {fileID: 1843326478}
   m_Layer: 5
   m_Name: Energy
   m_TagString: Untagged
@@ -7543,6 +7544,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843326474}
   m_CullTransparentMesh: 1
+--- !u!114 &1843326478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843326474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015754d246804ae40841c2f23e5fffb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMaterial: {fileID: 2100000, guid: 98764195e27c84c4fab6fe4b1a4e214f, type: 2}
 --- !u!1001 &1871349105
 PrefabInstance:
   m_ObjectHideFlags: 0

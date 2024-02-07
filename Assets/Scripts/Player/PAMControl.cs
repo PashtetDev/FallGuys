@@ -4,6 +4,8 @@ using UnityEngine;
 public class PAMControl : MonoBehaviour //Players Animations in Menu
 {
     [SerializeField]
+    private Material playerMaterial;
+    [SerializeField]
     private GameObject ps;
     [SerializeField]
     private Animator animator;
@@ -47,6 +49,7 @@ public class PAMControl : MonoBehaviour //Players Animations in Menu
     private IEnumerator Touch(int condition, float waitTime)
     {
         animator.SetInteger("Condition", condition);
+        ps.GetComponent<ParticleSystem>().startColor = playerMaterial.color;
         Instantiate(ps, transform.position, Quaternion.identity).GetComponent<PSController>().Initialization();
         yield return new WaitForSeconds(waitTime);
         animator.SetInteger("Condition", 0);

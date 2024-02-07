@@ -128,7 +128,11 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("JumpInUfo", true);
 
         if (groundChecker.onGround)
+        {
+            if (animator.GetBool("Fall"))
+                CameraShake.instance.ShakeCaller();
             animator.SetBool("OnGround", true);
+        }
         else
             animator.SetBool("OnGround", false);
     }
